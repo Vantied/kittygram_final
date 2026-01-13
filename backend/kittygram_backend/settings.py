@@ -17,7 +17,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = get_env_var('SECRET_KEY')
 
-DEBUG = get_env_var('DEBUG')
+DEBUG = get_env_var('DEBUG') == 'True'
 
 ALLOWED_HOSTS = get_env_var('ALLOWED_HOSTS').split(',')
 
