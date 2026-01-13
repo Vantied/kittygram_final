@@ -2,17 +2,24 @@
 import os
 from pathlib import Path
 
+from django.core.exceptions import ImproperlyConfigured
 from dotenv import load_dotenv
 
 load_dotenv()
 
+def get_env_var(var_name):
+    value = os.getenv(var_name)
+    if not value:
+        raise ImproperlyConfigured()
+    return value
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = get_env_var('SECRET_KEY')
 
-DEBUG = os.getenv('DEBUG')
+DEBUG = get_env_var('DEBUG')
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS','').split(',')
+ALLOWED_HOSTS = get_env_var('ALLOWED_HOSTS').split(',')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
