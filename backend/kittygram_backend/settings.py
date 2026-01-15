@@ -19,7 +19,7 @@ SECRET_KEY = get_env_var('SECRET_KEY')
 
 DEBUG = get_env_var('DEBUG') == 'True'
 
-ALLOWED_HOSTS = get_env_var('ALLOWED_HOSTS').split(',')
+ALLOWED_HOSTS = str(get_env_var('ALLOWED_HOSTS')).split(',')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
