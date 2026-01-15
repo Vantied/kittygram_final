@@ -10,7 +10,7 @@ load_dotenv()
 def get_env_var(var_name):
     value = os.getenv(var_name)
     if not value:
-        raise ImproperlyConfigured()
+        pass
     return value
 
 BASE_DIR = Path(__file__).resolve().parent.parent
