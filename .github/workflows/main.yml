@@ -43,7 +43,7 @@ jobs:
         DB_PORT: 5432
         SECRET_KEY: 'dymmy_secret_key_for_tests'
         DEBUG: 'True'
-        ALLOWED_HOSTS: 'localhost'
+        ALLOWED_HOSTS: 'localhost,'
       run: |
         python -m pip install --upgrade pip setuptools
         pip install flake8==6.0.0 flake8-isort==6.0.0
